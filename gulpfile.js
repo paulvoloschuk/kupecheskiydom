@@ -1,23 +1,24 @@
 'use strict';
 
 var gulp = require('gulp'),
-  babel = require('gulp-babel'),
-  uglify = require('gulp-uglify'),
-  watch = require('gulp-watch'),
-  prefixer = require('gulp-autoprefixer'),
-  cssmin = require('gulp-minify-css'),
-  sass = require('gulp-sass'),
-  sourcemaps = require('gulp-sourcemaps'),
-  imagemin = require('gulp-imagemin'),
-  concatCss = require('gulp-concat-css'),
-  concat = require('gulp-concat'),
-  htmlmin = require('gulp-htmlmin'),
-  pngquant = require('imagemin-pngquant'),
-  browserify = require('gulp-browserify'),
-  rigger = require('gulp-rigger'),
-  rimraf = require('rimraf'),
-  browserSync = require("browser-sync"),
-  reload = browserSync.reload;
+    babel = require('gulp-babel'),
+    uglify = require('gulp-uglify'),
+    watch = require('gulp-watch'),
+    prefixer = require('gulp-autoprefixer'),
+    cssmin = require('gulp-minify-css'),
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    imagemin = require('gulp-imagemin'),
+    concatCss = require('gulp-concat-css'),
+    concat = require('gulp-concat'),
+    htmlmin = require('gulp-htmlmin'),
+    pngquant = require('imagemin-pngquant'),
+    browserify = require('gulp-browserify'),
+    rigger = require('gulp-rigger'),
+    rimraf = require('rimraf'),
+    browserSync = require('browser-sync'),
+    ghPages = require('gulp-gh-pages'),
+    reload = browserSync.reload;
 
 var path = {
   build: {
@@ -25,24 +26,21 @@ var path = {
     js: 'build/js/',
     css: 'build/css/',
     img: 'build/img/',
-    fonts: 'build/fonts/',
-    audio: 'build/audio/'
+    fonts: 'build/fonts/'
   },
   src: {
     html: 'src/templates/[^_]*.html',
     js: 'src/js/[^_]*.js',
     style: 'src/styles/**/[^_]*.*',
     img: 'src/img/**/*.*',
-    fonts: 'src/fonts/**/*.*',
-    audio: 'src/audio/**/*.*'
+    fonts: 'src/fonts/**/*.*'
   },
   watch: {
     html: 'src/templates/*.html',
     js: 'src/js/*.js',
     style: 'src/styles/**/*.*',
     img: 'src/img/**/*.*',
-    fonts: 'src/fonts/**/*.*',
-    audio: 'src/audio/**/*.*'
+    fonts: 'src/fonts/**/*.*'
   },
   clean: './build'
 };
@@ -89,6 +87,10 @@ gulp.task('style:build', function () {
     .pipe(gulp.dest(path.build.css))
     .pipe(reload({stream: true}));
 });
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
 gulp.task('image:build', function () {
   gulp.src(path.src.img)
     .pipe(imagemin({
@@ -105,16 +107,11 @@ gulp.task('fonts:build', function() {
   gulp.src(path.src.fonts)
     .pipe(gulp.dest(path.build.fonts))
 });
-gulp.task('audio:build', function() {
-  gulp.src(path.src.audio)
-    .pipe(gulp.dest(path.build.audio))
-});
 gulp.task('build', [
   'html:build',
   'js:build',
   'style:build',
   'fonts:build',
-  'audio:build',
   'image:build'
 ]);
 gulp.task('watch', function(){
@@ -132,9 +129,6 @@ gulp.task('watch', function(){
   });
   watch([path.watch.fonts], function(event, cb) {
     gulp.start('fonts:build');
-  });
-  watch([path.watch.audio], function(event, cb) {
-    gulp.start('audio:build');
   });
 });
 gulp.task('webserver', function () {
