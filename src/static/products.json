@@ -1,0 +1,103 @@
+{
+  "exchangeCourse": {
+    "g": 4.5,
+    "d": 50
+  },
+  "products":[
+  {
+    "name": "WA-33",
+    "category": "tanometrs",
+    "description": "WA-33 – автоматический тонометр, компактный и точный прибор. Имеет простое и удобное управление – одной большой кнопкой. Лучшее предложение: сочетание точности, комфорта и современного дизайна по уникальной цене.</br>- Простое управление одной кнопкой</br>- Технология Pulse Arrhythmia Detection(диагностика аритмии пульса)</br>- Технология Fuzzy Logic – индивидуальный уровень нагнетаниявоздуха в манжету для точного и комфортного измерения </br>- Шкала индикации уровня артериального давления</br>- Память последнего измерения</br>",
+    "price": 700,
+    "currency": "r",
+    "image": "img/products/wa33.jpg"
+  },
+  {
+    "name": "WA-99",
+    "category": "tanometrs",
+    "description": "",
+    "price": 700,
+    "currency": "r",
+    "image": "img/products/wa55.jpg"
+  },
+  {
+    "name": "WA-55",
+    "category": "tanometrs",
+    "description": "",
+    "price": 500,
+    "currency": "r",
+    "image": "img/products/"
+  },
+  {
+    "name": "WA-77",
+    "category": "tanometrs",
+    "description": "",
+    "price": 700,
+    "currency": "r",
+    "image": "img/products/"
+  },
+  {
+    "name": "WA-88",
+    "category": "tanometrs",
+    "description": "",
+    "price": 700,
+    "currency": "r",
+    "image": "img/products/"
+  },
+  {
+    "name": "WM-61",
+    "category": "tanometrs",
+    "description": "",
+    "price": 700,
+    "currency": "r",
+    "image": "img/products/"
+  },
+  {
+    "name": "WM-62S",
+    "category": "tanometrs",
+    "description": "",
+    "price": 700,
+    "currency": "r",
+    "image": "img/products/"
+  },
+  {
+    "name": "WM-63S",
+    "category": "tanometrs",
+    "description": "",
+    "price": 700,
+    "currency": "r",
+    "image": "img/products/"
+  },
+  {
+    "name": "WA-33",
+    "category": "tanometrs",
+    "description": "",
+    "price": 700,
+    "currency": "r",
+    "image": "img/products/"
+  },
+  {
+    "name": "WA-33",
+    "category": "tanometrs",
+    "description": "",
+    "price": 700,
+    "currency": "r",
+    "image": "img/products/"
+  },
+  {
+    "name": "WA-33",
+    "category": "testcat",
+    "description": "",
+    "price": 700,
+    "currency": "r",
+    "image": "img/products/"
+  },
+  {
+    "name": "WA-33",
+    "category": "testcat",
+    "description": "",
+    "price": 700,
+    "currency": "r",
+    "image": "img/products/"
+  }
+]}
