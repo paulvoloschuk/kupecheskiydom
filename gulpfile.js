@@ -26,21 +26,21 @@ var path = {
     js: 'build/js/',
     css: 'build/css/',
     img: 'build/img/',
-    fonts: 'build/fonts/'
+    static: 'build/static/'
   },
   src: {
     html: 'src/templates/[^_]*.html',
     js: 'src/js/[^_]*.js',
     style: 'src/styles/**/[^_]*.*',
     img: 'src/img/**/*.*',
-    fonts: 'src/fonts/**/*.*'
+    static: 'src/static/**/*.*'
   },
   watch: {
     html: 'src/templates/*.html',
     js: 'src/js/*.js',
     style: 'src/styles/**/*.*',
     img: 'src/img/**/*.*',
-    fonts: 'src/fonts/**/*.*'
+    static: 'src/static/**/*.*'
   },
   clean: './build'
 };
@@ -63,7 +63,7 @@ gulp.task('html:build', function () {
 });
 gulp.task('js:build', function () {
   gulp.src(path.src.js)
-    .pipe(babel({presets: ['es2015']}))
+    .pipe(babel({presets: ['latest']}))
     .pipe(browserify({
           insertGlobals : true,
           debug : !gulp.env.production
@@ -103,15 +103,15 @@ gulp.task('image:build', function () {
     .pipe(reload({stream: true}));
 });
 
-gulp.task('fonts:build', function() {
-  gulp.src(path.src.fonts)
-    .pipe(gulp.dest(path.build.fonts))
+gulp.task('static:build', function() {
+  gulp.src(path.src.static)
+    .pipe(gulp.dest(path.build.static))
 });
 gulp.task('build', [
   'html:build',
   'js:build',
   'style:build',
-  'fonts:build',
+  'static:build',
   'image:build'
 ]);
 gulp.task('watch', function(){
@@ -127,8 +127,8 @@ gulp.task('watch', function(){
   watch([path.watch.img], function(event, cb) {
     gulp.start('image:build');
   });
-  watch([path.watch.fonts], function(event, cb) {
-    gulp.start('fonts:build');
+  watch([path.watch.static], function(event, cb) {
+    gulp.start('static:build');
   });
 });
 gulp.task('webserver', function () {

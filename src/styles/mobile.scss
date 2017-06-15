@@ -1,0 +1,27 @@
+.product {
+  width: calc(50% - 5em);
+}
+
+@media screen and (max-width:900px) {
+  #products .content {
+    display: block;
+    & > * {
+      display: block;
+      width: auto;
+    }
+    aside {
+      border: none;
+      border-bottom: 1px solid lightgray;
+      width: auto;
+    }
+    article {
+      padding: 0;
+    }
+  }
+}
+
+@media screen and (max-width:600px) {
+  .product {
+    width: calc(100% - 5em);
+  }
+}
