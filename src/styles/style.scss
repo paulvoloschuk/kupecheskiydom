@@ -32,7 +32,6 @@ body {
   background: lightgray;
   font-family: Roboto;
   font-weight: 400;
-  padding-top: 5em;
 }
 .wrapper {
   display: block;
@@ -67,6 +66,43 @@ body {
     &:nth-of-type(2) {
       text-align: center;
     }
+  }
+}
+/* HEADER */
+header {
+  height: 100vh;
+  padding-top: 5em;
+  box-sizing: border-box;
+  background: url(../img/header-bg.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  border-bottom: 1px solid white;
+  .wrapper{
+    position: relative;
+    height: 100%;
+  }
+  .container{
+    color: white;
+    text-shadow: 0 0 25px rgba(0,0,0,.5), 0 0 5px rgba(0,0,0,.5);
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    width: 50%;
+    transform: rotateY(-50%);
+  }
+}
+.ghost-button{
+  background: none;
+  border: 1px solid white;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  padding: 0 2em;
+  line-height: 3em;
+  height: 3em;
+  &:hover{
+    background: white;
+    color: black;
+    text-shadow: none;
   }
 }
 
@@ -168,7 +204,7 @@ nav {
 
 /* SECTIONS */
 section, footer {
-  padding: .5em 0;
+  padding: 4em 0;
 
   h2, h3 {
     font-weight: 500;
@@ -330,9 +366,31 @@ span.price {
 footer {
   background: #282a34;
   color: lightgray;
-
+  padding-bottom: 0;
   h2 {
     color: white;
+  }
+  a {
+    color: inherit;
+    &:hover{
+      color: $primary_color;
+    }
+  }
+  .content{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    & > * {
+      width: 17em;
+    }
+  }
+  .copyright{
+    background: black;
+    color: gray;
+    margin-top: 3em;
+    padding: 1em 0;
+    text-align: center;
+    opacity: .3;
   }
 }
 #products {
@@ -345,6 +403,17 @@ footer {
 }
 #partners {
   background-color: white;
+  .content{
+    text-align: center;
+    img{
+      height: 5em;
+      margin: 2em;
+      filter: grayscale(40);
+      &:hover{
+        filter: none;
+      }
+    }
+  }
 }
 #about {
   background-color: rgb(228, 240, 245);
@@ -518,3 +587,15 @@ footer {
     pointer-events: all;
   }
 }
+.states {
+  text-align: center;
+  float: left;
+  img {
+    height: 5em;
+    display: block;
+    margin: .5em 1em;
+    box-shadow: 0 0 5px rgba(0,0,0,.3);
+  }
+}
+
+@import "./mobile.scss";

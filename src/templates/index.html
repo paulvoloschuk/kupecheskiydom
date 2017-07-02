@@ -11,7 +11,7 @@
       <link rel="stylesheet" href="./css/normalize.css">
       <link rel="stylesheet" href="./css/style.css">
       <!-- <link rel="stylesheet" href="./css/flaticon.css"> -->
-      <link rel="stylesheet" href="./css/mobile.css" media="screen and (max-width: 1100px)">
+      <!-- <link rel="stylesheet" href="./css/mobile.css" media="screen and (max-width: 1100px)"> -->
 
       <script src="./js/main.js"></script>
 
@@ -19,7 +19,15 @@
   <body>
 
     //= _navigation.html
-
+    <header id="home">
+      <div class="wrapper">
+        <div class="container">
+          <h1>Купейческий дом Донбаса</h1>
+          <p>В каталоге вы найдете огромное количество разнообразной продукции для вашего здоровья и здоровья вашей семьи.</p>
+          <a class="ghost-button" href="#products">Смотреть каталог</a>
+        </div>
+      </div>
+    </header>
     <section id="products">
       <div class="wrapper">
         <h2>Продукция</h2>
@@ -43,13 +51,18 @@
     <section id="trademarks">
       <div class="wrapper">
         <h2>Торговые марки</h2>
-
+        //= _trademarks.html
       </div>
     </section>
     <section id="partners">
       <div class="wrapper">
         <h2>Партнеры</h2>
-
+        <div class="content">
+          <img src="img/partners/arnica.svg" alt="arnica">
+          <img src="img/partners/va.svg" alt="va">
+          <img src="img/partners/sarepta.svg" alt="sarepta">
+          <img src="img/partners/drugstore.svg" alt="drugstore">
+        </div>
       </div>
     </section>
     <section id="about">
@@ -61,7 +74,33 @@
     <footer id="contacts">
       <div class="wrapper">
         <h2>Контакты</h2>
-
+        <div class="content">
+          <div>
+            <p>
+              <b>Бугаев Владимир Сергеевич</b><br />
+              <a href="tel:+380509491502">+38(050) 949-15-02</a><br />
+              <a href="mailto:bugaev.kdd@mail.ru">bugaev.kdd@mail.ru</a>
+            </p>
+            <p>
+              <b>Антонов Сергей Михайлович</b><br />
+              <a href="tel:+380504730805">+38(050) 473-08-05</a><br />
+              <a href="mailto:sergey.antonov-kdd@mail.ru">sergey.antonov-kdd@mail.ru</a><br />
+            </p>
+          </div>
+          <div>
+            <p>
+              Адрес:<br />
+              г.Донецк, проспект Ильича 44
+            </p>
+            <p>
+              Время работы:<br />
+              Пн-Пт c 9.00 до 17:00
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        Copyright (c) 2017 Copyright Holder All Rights Reserved.
       </div>
     </footer>
     <div class="modalbox">

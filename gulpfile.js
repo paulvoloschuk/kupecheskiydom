@@ -88,7 +88,7 @@ gulp.task('style:build', function () {
     .pipe(reload({stream: true}));
 });
 gulp.task('deploy', function() {
-  return gulp.src('./dist/**/*')
+  return gulp.src('./build/**/*')
     .pipe(ghPages());
 });
 gulp.task('image:build', function () {

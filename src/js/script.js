@@ -9,7 +9,9 @@ let instances = {};
 //= _filter.class.js
 
 window.onload = () => {
-  let products = new Store('/static/products.json', '#products .content');
+
+  // Store
+  let products = new Store('static/products.json', '#products .content');
   products.onLoad = () => {
     let nav = document.querySelector('nav'),
         aside = document.querySelector('aside'),
@@ -21,4 +23,7 @@ window.onload = () => {
       else if (correctScroll > 0 && correctScroll < aside.offsetHeight - slide.offsetHeight) slide.style.transform = `translateY(${correctScroll}px)`;
     }
   }
+
+  // Scroll
+  Array.from(document.querySelectorAll('a[href^="#"]')).map(item => item.onclick = scrollTo);
 }

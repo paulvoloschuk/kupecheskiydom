@@ -10,6 +10,7 @@ class Store {
     this.filter = false;
     this.basket = false;
     this.modal  = new Modal('#modalbox');
+    this.init = false;
 
     // Getting JSON with products
     fetch(urlToJSON)
@@ -22,15 +23,16 @@ class Store {
   }
   build() {
     // sessionStorage
-    let activeShipments = this.products.filter(item => !!item.ammount); //.reduce(item => {return{id:item.props.id, ammount: item.ammount}}) || [];
-    if (activeShipments.length === 0) {
+    let activeShipments = this.products.filter(item => !!item.ammount);
+    if (!this.init) {
         activeShipments = JSON.parse(sessionStorage.getItem('selected')) || [];
         if (activeShipments.length != 0) activeShipments.map(item => this.products[item.id].ammount = item.ammount );
     } else {sessionStorage.setItem('selected', JSON.stringify(this.products.filter(item => !!item.ammount).reduce((result, item) => {
-              result.push({id:item.props.id, ammount: item.ammount});
+              result.push({id: item.props.id, ammount: item.ammount});
               return result;
             },[])));
     }
+    this.init = true;
 
     //Initializing filter & basket
     if (!this.filter) this.filter = new Filter(this.container.filter, this.products, this.build.bind(this));
